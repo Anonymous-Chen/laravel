@@ -63,6 +63,17 @@ Route::get('member/{id}',['uses'=>'MemberController@info']);
 
 Route::get('test1',['uses'=>'StudentController@test1']);
 
+Route::get('query1',['uses'=>'StudentController@query1']);
+
+Route::get('query2',['uses'=>'StudentController@query2']);
+
+Route::get('query3',['uses'=>'StudentController@query3']);
+
+Route::get('query4',['uses'=>'StudentController@query4']);
+
+Route::get('query5',['uses'=>'StudentController@query5']);
+
+
 
 
 
