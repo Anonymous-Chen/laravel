@@ -7,6 +7,7 @@
  */
 namespace  App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Support\Facades\DB;
 
 class  StudentController extends  Controller{
@@ -130,6 +131,154 @@ class  StudentController extends  Controller{
 
         //max() min() avg() sum()
     }
+
+    //orm 模型
+    public function orm1(){
+        //all 查询表的所有记录
+//        $stus = Student::all();
+//        dd($stus);
+
+        //find 一条
+        $stu = Student::find(1001);
+        var_dump($stu);
+
+        //findOrFail 找不到就报错；
+        $stu = Student::findOrFail(1001);
+        var_dump($stu);
+
+        //在orm中也能使用查询构造器
+
+    }
+
+    public function orm2()
+    {
+        //使用模型新增数据
+//        $stu = new Student();
+//        $stu->name = 'name5';
+//        $stu->age = 19;
+//        $bool = $stu->save();
+//        dd($stu);
+
+        //使用模型的create新增数据
+//        $stu = Student::create(
+//            ['name'=>'imoooc1','age'=>25]
+//        );
+//        dd($stu);
+
+        //firstOrCreate() 找 有则取无则建
+//        $stu = Student::firstOrCreate(
+//            ['name'=>'imoooc1']
+//        );
+//        dd($stu);
+
+        //firstOrNew 找 有则取无则实例化 实例化后决定是否保存 save()
+        $stu = Student::firstOrNew(
+            ['name' => 'imoooc1']
+        );
+        dd($stu);
+    }
+
+        public function orm3(){
+            //更新数据
+            //通过模型
+//            $stu = Student::find(1010);
+//            $stu->name = 'love';
+//            $bool = $stu->save();
+//            var_dump($bool);
+            //结合查询 批量
+            $num = Student::where('id','>','1009')->update(
+                ['age'=>'25']
+            );
+            var_dump($num);
+
+        }
+
+    public function orm4(){
+            //模型删除
+//        $stu = Student::find(1010);
+//        $bool = $stu ->delete();
+//        var_dump($bool);
+
+        //主键删除
+//        $num = Student::destroy(1009);
+//        $num = Student::destroy(1008,1007);
+//        $num = Student::destroy([1008,1007]);
+//        var_dump($num);
+
+        //指定条件
+        $num = Student::where('id','>','1005')->delete();
+        var_dump($num);
+
+    }
+
+    public  function  section1(){
+
+        $name = 'sean';
+        $arr = ['sean','wss'];
+
+        $stu = Student::get();
+
+        return view('student.section1',[
+            'name' => $name,
+            'arr' => $arr,
+            'stu' => $stu,
+        ]);
+
+    }
+
+    public  function  urltest(){
+        return 'urltest';
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

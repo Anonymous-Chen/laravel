@@ -1,0 +1,3 @@
+
+
+<p>woshi{{ $message }}</p>

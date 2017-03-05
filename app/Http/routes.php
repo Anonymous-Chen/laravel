@@ -73,6 +73,20 @@ Route::get('query4',['uses'=>'StudentController@query4']);
 
 Route::get('query5',['uses'=>'StudentController@query5']);
 
+Route::get('orm1',['uses'=>'StudentController@orm1']);
+
+Route::get('orm2',['uses'=>'StudentController@orm2']);
+
+Route::get('orm3',['uses'=>'StudentController@orm3']);
+
+Route::get('orm4',['uses'=>'StudentController@orm4']);
+
+Route::get('section1',['uses'=>'StudentController@section1']);
+
+Route::any('url',['as'=>'ut','uses'=>'StudentController@urltest']);
+
+
+
 
 
 
