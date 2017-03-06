@@ -85,6 +85,26 @@ Route::get('section1',['uses'=>'StudentController@section1']);
 
 Route::any('url',['as'=>'ut','uses'=>'StudentController@urltest']);
 
+Route::any('request1',['as'=>'re1','uses'=>'StudentController@request1']);
+
+
+//sessionstart,使用session前的准备
+Route::group(['middleware'=>['web']],function(){
+
+    Route::any('session1',['uses'=>'StudentController@session1']);
+    Route::any('session2',['uses'=>'StudentController@session2']);
+});
+
+Route::any('response',['uses'=>'StudentController@response']);
+
+//宣传
+Route::any('activity0',['uses'=>'StudentController@activity0']);
+//活动
+Route::group(['middleware'=>['activity']],function(){
+    Route::any('activity1',['uses'=>'StudentController@activity1']);
+    Route::any('activity2',['uses'=>'StudentController@activity2']);
+    Route::any('activity3',['uses'=>'StudentController@activity3']);
+});
 
 
 
